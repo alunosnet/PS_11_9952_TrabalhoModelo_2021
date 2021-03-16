@@ -1,0 +1,54 @@
+﻿//perfis
+	Administrador, Aluno
+
+//Páginas
+	Pública:
+		Index - Login
+	Administrador:
+		Gerir Alunos - CRUD
+		Gerir Disciplinas - CRUD
+		Gerir Notas - CRUD
+		Gerir Utilizadores - CRUD
+	Aluno:
+		Perfil do aluno - RU
+		Notas - R
+
+//BD
+//tabelas
+	Alunos(nprocesso,nome,morada,cp,data_nascimento,genero)
+	Disciplinas(id,nome,nrmodulos,curso)
+	Notas(id,id_disciplina,nprocesso,valor,data,nrmodulo)
+	Utilizadores(nome,palavra_passe,perfil,nprocesso)
+
+//scripts
+create table alunos(
+	nprocesso int identity primary key,
+	nome varchar(60) not null,
+	morada varchar(100) not null,
+	cp varchar(8) not null,
+	data_nascimento date not null,
+	genero varchar(1) not null
+);
+create table disciplinas(
+	id int identity primary key,
+	nome varchar(40) not null,
+	nrmodulos int check(nrmodulos>0),
+	curso varchar(40) not null
+);
+create table notas(
+	id int identity primary key,
+	id_disciplina int foreign key references disciplinas(id) on delete cascade,
+	nprocesso int foreign key references alunos(nprocesso) on delete cascade,
+	valor int check(valor>=1 and valor<=20) not null,
+	data date not null,
+	nrmodulo int check(nrmodulo>0)
+);
+create table utilizadores(
+	nome varchar(40) not null primary key,
+	palavra_passe varchar(64) not null,
+	perfil int not null,
+	nprocesso int null foreign key references alunos(nprocesso) on delete cascade
+);
+
+//
+insert into utilizadores values ('admin',HASHBYTES('SHA2_512','12345'),0,null)
