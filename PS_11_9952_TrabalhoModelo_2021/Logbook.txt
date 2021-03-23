@@ -52,3 +52,4 @@ create table utilizadores(
 
 //
 insert into utilizadores values ('admin',HASHBYTES('SHA2_512','12345'),0,null)
+select * from utilizadores where nome='admin' and palavra_passe=cast(HASHBYTES('SHA2_512','12345') as varbinary(64))

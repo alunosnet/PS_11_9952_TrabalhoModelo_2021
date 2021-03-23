@@ -67,6 +67,13 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Admin\Alunos\adicionar.aspx" />
+    <Content Include="Admin\Alunos\apagar.aspx" />
+    <Content Include="Admin\Alunos\editar.aspx" />
+    <Content Include="Admin\Alunos\gerir.aspx" />
+    <Content Include="Admin\Disciplinas\adicionar.aspx" />
+    <Content Include="Admin\Disciplinas\gerir.aspx" />
+    <Content Include="Admin\Disciplinas\pesquisar.aspx" />
     <Content Include="App_Data\bd_9952.mdf" />
     <Content Include="App_Data\bd_9952_log.ldf">
       <DependentUpon>bd_9952.mdf</DependentUpon>
@@ -80,6 +87,55 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Admin\Alunos\adicionar.aspx.cs">
+      <DependentUpon>adicionar.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Alunos\adicionar.aspx.designer.cs">
+      <DependentUpon>adicionar.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Alunos\apagar.aspx.cs">
+      <DependentUpon>apagar.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Alunos\apagar.aspx.designer.cs">
+      <DependentUpon>apagar.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Alunos\editar.aspx.cs">
+      <DependentUpon>editar.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Alunos\editar.aspx.designer.cs">
+      <DependentUpon>editar.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Alunos\gerir.aspx.cs">
+      <DependentUpon>gerir.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Alunos\gerir.aspx.designer.cs">
+      <DependentUpon>gerir.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Disciplinas\adicionar.aspx.cs">
+      <DependentUpon>adicionar.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Disciplinas\adicionar.aspx.designer.cs">
+      <DependentUpon>adicionar.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Disciplinas\gerir.aspx.cs">
+      <DependentUpon>gerir.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Disciplinas\gerir.aspx.designer.cs">
+      <DependentUpon>gerir.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Disciplinas\pesquisar.aspx.cs">
+      <DependentUpon>pesquisar.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Disciplinas\pesquisar.aspx.designer.cs">
+      <DependentUpon>pesquisar.aspx</DependentUpon>
+    </Compile>
     <Compile Include="MP.Master.cs">
       <DependentUpon>MP.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -99,7 +155,9 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Aluno\" />
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
