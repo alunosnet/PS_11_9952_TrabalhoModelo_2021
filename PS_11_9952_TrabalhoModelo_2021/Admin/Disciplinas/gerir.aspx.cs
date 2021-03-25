@@ -13,5 +13,17 @@ namespace PS_11_9952_TrabalhoModelo_2021.Admin.Disciplinas
         {
 
         }
+        //validação do tamanho minimo
+        protected void CustomValidator1_ServerValidate(object source, ServerValidateEventArgs args)
+        {
+            //tamanho deve ter pelo menos 2 letras
+            string texto = args.Value;
+            if (texto.Length < 2)
+            {
+                args.IsValid = false;
+                return;
+            }
+            args.IsValid = true;
+        }
     }
 }
