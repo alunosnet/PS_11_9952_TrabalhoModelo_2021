@@ -11,7 +11,7 @@ namespace PS_11_9952_TrabalhoModelo_2021.Admin.Disciplinas
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            //TODO: validar sessão
         }
         //validação do tamanho minimo
         protected void CustomValidator1_ServerValidate(object source, ServerValidateEventArgs args)

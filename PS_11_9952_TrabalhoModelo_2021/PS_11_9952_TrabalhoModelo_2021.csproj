@@ -74,6 +74,9 @@
     <Content Include="Admin\Disciplinas\adicionar.aspx" />
     <Content Include="Admin\Disciplinas\gerir.aspx" />
     <Content Include="Admin\Disciplinas\pesquisar.aspx" />
+    <Content Include="Admin\Notas\adicionar.aspx" />
+    <Content Include="Admin\Notas\gerir.aspx" />
+    <Content Include="Admin\Notas\pesquisar.aspx" />
     <Content Include="App_Data\bd_9952.mdf" />
     <Content Include="App_Data\bd_9952_log.ldf">
       <DependentUpon>bd_9952.mdf</DependentUpon>
@@ -134,6 +137,27 @@
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Admin\Disciplinas\pesquisar.aspx.designer.cs">
+      <DependentUpon>pesquisar.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Notas\adicionar.aspx.cs">
+      <DependentUpon>adicionar.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Notas\adicionar.aspx.designer.cs">
+      <DependentUpon>adicionar.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Notas\gerir.aspx.cs">
+      <DependentUpon>gerir.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Notas\gerir.aspx.designer.cs">
+      <DependentUpon>gerir.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Notas\pesquisar.aspx.cs">
+      <DependentUpon>pesquisar.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Notas\pesquisar.aspx.designer.cs">
       <DependentUpon>pesquisar.aspx</DependentUpon>
     </Compile>
     <Compile Include="MP.Master.cs">
