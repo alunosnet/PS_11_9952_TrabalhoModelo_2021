@@ -66,7 +66,8 @@
                 Type="Integer" MinimumValue="1" MaximumValue="20"
                 ErrorMessage="O número do módulo deve estar entre 1 e 20"></asp:RangeValidator>
             <br />
-            <asp:LinkButton runat="server" Text="Insert" CommandName="Insert" ID="InsertButton" CausesValidation="True" />&nbsp;<asp:LinkButton runat="server" Text="Cancel" CommandName="Cancel" ID="InsertCancelButton" CausesValidation="False" />
+            <asp:LinkButton CssClass="btn btn-danger btn-lg" runat="server" Text="Insert" CommandName="Insert" ID="InsertButton" CausesValidation="True" />&nbsp;
+            <asp:LinkButton CssClass="btn btn-info btn-lg" runat="server" Text="Cancel" CommandName="Cancel" ID="InsertCancelButton" CausesValidation="False" />
         </InsertItemTemplate>
         <ItemTemplate>
             id:
