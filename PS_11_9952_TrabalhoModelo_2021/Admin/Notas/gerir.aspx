@@ -3,9 +3,9 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <h1>Gerir notas por aluno</h1>
-    //pesquisar: aluno
-    //dropdown com alunos
-    //gridview com notas
+    Aluno:<asp:DropDownList AutoPostBack="true" ID="DropDownList1" runat="server"></asp:DropDownList>
+    <hr />
+    <asp:GridView ID="GridView1" runat="server"></asp:GridView>
     //templates dos links editar/apagar
     //templates dos campos
     //dropdownlist: id_disciplina e nprocesso
