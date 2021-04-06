@@ -11,7 +11,20 @@ namespace PS_11_9952_TrabalhoModelo_2021.Admin.Notas
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            //TODO: validar sessão
+        }
+        //valida a data do módulo
+        protected void CustomValidator1_ServerValidate(object source, ServerValidateEventArgs args)
+        {
+            DateTime data = DateTime.Parse(args.Value);
+            //não pode ser superior à data atual
+            if (data > DateTime.Now)
+            {
+                args.IsValid = false;
+                return;
+            }
 
+            args.IsValid = true;
         }
     }
 }
