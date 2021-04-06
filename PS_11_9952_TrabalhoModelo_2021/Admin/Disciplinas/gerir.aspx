@@ -67,10 +67,17 @@
 
         </Columns>
     </asp:GridView>
-    <asp:SqlDataSource runat="server" ID="SqlDisciplinas" ConnectionString='<%$ ConnectionStrings:ConnectionString %>' DeleteCommand="DELETE FROM [disciplinas] WHERE id=@id" SelectCommand="SELECT * FROM [disciplinas]" UpdateCommand="UPDATE disciplinas SET nome = @nome, nrmodulos = @nrmodulos, curso = @curso WHERE (id = @id)">
+    <asp:SqlDataSource runat="server" ID="SqlDisciplinas" 
+        ConnectionString='<%$ ConnectionStrings:ConnectionString %>' 
+        DeleteCommand="DELETE FROM [disciplinas] WHERE id=@id" 
+        SelectCommand="SELECT * FROM [disciplinas] WHERE (nome LIKE '%' + @nome + '%')" 
+        UpdateCommand="UPDATE disciplinas SET nome = @nome, nrmodulos = @nrmodulos, curso = @curso WHERE (id = @id)">
         <DeleteParameters>
             <asp:Parameter Name="id"></asp:Parameter>
         </DeleteParameters>
+         <SelectParameters>
+            <asp:ControlParameter ControlID="TextBox1" PropertyName="Text" Name="nome"></asp:ControlParameter>
+        </SelectParameters>
         <UpdateParameters>
             <asp:Parameter Name="nome"></asp:Parameter>
             <asp:Parameter Name="nrmodulos"></asp:Parameter>
