@@ -1,5 +1,10 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MP.Master" AutoEventWireup="true" CodeBehind="index.aspx.cs" Inherits="PS_11_9952_TrabalhoModelo_2021.index" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <style>
+        .hidethis{
+            display:none;
+        }
+    </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <!--login-->
@@ -27,8 +32,12 @@
         <h2>Cursos Disponíveis</h2>
         <asp:GridView CssClass="table" ID="GridView1" runat="server" AutoGenerateColumns="False" DataSourceID="SqlCursos">
             <Columns>
-                <asp:BoundField DataField="curso" HeaderText="curso" SortExpression="curso"></asp:BoundField>
-                <asp:HyperLinkField DataNavigateUrlFields="curso" DataNavigateUrlFormatString="detalhes_curso.aspx?curso={0}" Text="Ver detalhes..."></asp:HyperLinkField>
+                <asp:BoundField DataField="curso" SortExpression="curso">
+                    <HeaderStyle Height="0px" CssClass="hidethis"></HeaderStyle>
+                </asp:BoundField>
+                <asp:HyperLinkField DataNavigateUrlFields="curso" DataNavigateUrlFormatString="detalhes_curso.aspx?curso={0}" Text="Ver detalhes...">
+                    <HeaderStyle CssClass="hidethis"></HeaderStyle>
+                </asp:HyperLinkField>
             </Columns>
         </asp:GridView>
         <asp:SqlDataSource runat="server" ID="SqlCursos" ConnectionString='<%$ ConnectionStrings:ConnectionString %>' SelectCommand="SELECT DISTINCT [curso] FROM [disciplinas]"></asp:SqlDataSource>
