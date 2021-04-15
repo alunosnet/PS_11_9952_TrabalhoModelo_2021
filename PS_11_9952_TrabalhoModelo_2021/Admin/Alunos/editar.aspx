@@ -6,7 +6,8 @@
     <a href="gerir.aspx">Voltar</a>
     <asp:FormView OnItemUpdated="FormView1_ItemUpdated" DefaultMode="Edit" Width="100%" ID="FormView1" runat="server" DataKeyNames="nprocesso" DataSourceID="SqlAluno">
         <EditItemTemplate>
-            Nº processo:
+            <asp:Image CssClass="img-fluid" ID="Image1" runat="server" ImageUrl='<%# Eval("nprocesso","~/Public/Fotos/{0}.jpg")  %>' Width="200px" />
+            <br />Nº processo:
             <asp:Label CssClass="form-control" Text='<%# Eval("nprocesso") %>' runat="server" ID="nprocessoLabel1" /><br />
             Nome:
             <asp:TextBox CssClass="form-control" MaxLength="60" Text='<%# Bind("nome") %>' runat="server" ID="nomeTextBox" />
@@ -38,7 +39,7 @@
                 OnServerValidate="CustomValidator3_ServerValidate"></asp:CustomValidator>
             <br />
             Data nascimento:
-            <asp:TextBox CssClass="form-control" TextMode="Date" Text='<%# Bind("data_nascimento") %>' runat="server" ID="data_nascimentoTextBox" />
+            <asp:TextBox CssClass="form-control" TextMode="Date" Text='<%# Bind("data_nascimento","{0:yyyy-MM-dd}") %>' runat="server" ID="data_nascimentoTextBox" />
             <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ControlToValidate="data_nascimentoTextBox"
                 CssClass="alert alert-danger" Display="Dynamic"
                 ErrorMessage="O campo data de nascimento é de preenchimento obrigatório"></asp:RequiredFieldValidator>
@@ -55,7 +56,9 @@
                 CssClass="alert alert-danger" Display="Dynamic"
                 ErrorMessage="O campo género é obrigatório"></asp:RequiredFieldValidator>
             <br />
-            <!--TODO: Falta o fileupload da fotografia-->
+            Fotografia:
+            <asp:FileUpload CssClass="form-control-file" ID="FileUpload1" runat="server" />
+            <br />
             <asp:LinkButton CssClass="btn btn-danger" runat="server" Text="Update" CommandName="Update" ID="UpdateButton" CausesValidation="True" />&nbsp;<asp:LinkButton CssClass="btn btn-info" runat="server" Text="Cancel" CommandName="Cancel" ID="UpdateCancelButton" CausesValidation="False" />
         </EditItemTemplate>
         <InsertItemTemplate>
@@ -87,7 +90,9 @@
             <asp:LinkButton runat="server" Text="Edit" CommandName="Edit" ID="EditButton" CausesValidation="False" />
         </ItemTemplate>
     </asp:FormView>
-    <asp:SqlDataSource runat="server" ID="SqlAluno" ConnectionString='<%$ ConnectionStrings:ConnectionString %>' SelectCommand="SELECT nprocesso, nome, morada, cp, data_nascimento, genero FROM alunos WHERE (nprocesso = @nprocesso)" UpdateCommand="UPDATE alunos SET nome = @nome, morada = @morada, cp = @cp, data_nascimento = @data_nascimento, genero = @genero WHERE (nprocesso = @nprocesso)">
+    <asp:SqlDataSource OnUpdated="SqlAluno_Updated" runat="server" ID="SqlAluno" ConnectionString='<%$ ConnectionStrings:ConnectionString %>' 
+        SelectCommand="SELECT nprocesso, nome, morada, cp, data_nascimento, genero FROM alunos WHERE (nprocesso = @nprocesso)" 
+        UpdateCommand="UPDATE alunos SET nome = @nome, morada = @morada, cp = @cp, data_nascimento = @data_nascimento, genero = @genero WHERE (nprocesso = @nprocesso)">
         <SelectParameters>
             <asp:QueryStringParameter QueryStringField="nprocesso" Name="nprocesso"></asp:QueryStringParameter>
         </SelectParameters>

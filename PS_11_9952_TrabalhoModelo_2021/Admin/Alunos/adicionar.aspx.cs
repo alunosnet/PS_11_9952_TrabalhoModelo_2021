@@ -158,8 +158,13 @@ namespace PS_11_9952_TrabalhoModelo_2021.Admin.Alunos
         protected void SqlAlunos_Inserted(object sender, SqlDataSourceStatusEventArgs e)
         {
             //nprocesso
-            string processo = e.Command.Parameters["novo"].Value.ToString();
-            //TODO: continuar aqui
+            string processo = e.Command.Parameters["@novo"].Value.ToString();
+            //imagem
+            FileUpload imagem = FormView1.FindControl("FileUpload1") as FileUpload;
+            if (imagem.HasFile)
+            {
+                imagem.SaveAs(Server.MapPath("~/public/fotos/") + processo + ".jpg");
+            }
         }
     }
 }

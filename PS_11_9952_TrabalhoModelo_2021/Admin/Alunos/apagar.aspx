@@ -34,7 +34,8 @@
             <asp:LinkButton runat="server" Text="Insert" CommandName="Insert" ID="InsertButton" CausesValidation="True" />&nbsp;<asp:LinkButton runat="server" Text="Cancel" CommandName="Cancel" ID="InsertCancelButton" CausesValidation="False" />
         </InsertItemTemplate>
         <ItemTemplate>
-            Nº processo:
+            <asp:Image CssClass="img-fluid" ID="Image1" runat="server" ImageUrl='<%# Eval("nprocesso","~/Public/Fotos/{0}.jpg")  %>' Width="200px" />
+            <br />Nº processo:
             <asp:Label CssClass="form-control" Text='<%# Eval("nprocesso") %>' runat="server" ID="nprocessoLabel" /><br />
             nome:
             <asp:Label CssClass="form-control" Text='<%# Bind("nome") %>' runat="server" ID="nomeLabel" /><br />
@@ -49,7 +50,7 @@
             <asp:LinkButton CssClass="btn btn-danger" runat="server" Text="Delete" CommandName="Delete" ID="DeleteButton" CausesValidation="False" />
         </ItemTemplate>
     </asp:FormView>
-    <asp:SqlDataSource runat="server" ID="SqlAluno" ConnectionString='<%$ ConnectionStrings:ConnectionString %>' DeleteCommand="DELETE FROM alunos WHERE (nprocesso = @nprocesso)" SelectCommand="SELECT nprocesso, nome, morada, cp, data_nascimento, genero FROM alunos WHERE (nprocesso = @nprocesso)">
+    <asp:SqlDataSource OnDeleted="SqlAluno_Deleted" runat="server" ID="SqlAluno" ConnectionString='<%$ ConnectionStrings:ConnectionString %>' DeleteCommand="DELETE FROM alunos WHERE (nprocesso = @nprocesso)" SelectCommand="SELECT nprocesso, nome, morada, cp, data_nascimento, genero FROM alunos WHERE (nprocesso = @nprocesso)">
         <DeleteParameters>
             <asp:Parameter Name="nprocesso"></asp:Parameter>
         </DeleteParameters>

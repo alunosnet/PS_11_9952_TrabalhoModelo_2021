@@ -13,6 +13,11 @@ namespace PS_11_9952_TrabalhoModelo_2021.Admin.Alunos
         {
             if (Session["perfil"] == null || Session["perfil"].Equals("0") == false)
                 Response.Redirect("~/index.aspx");
+
+            //cache
+            Response.Cache.SetNoStore();
+            Response.Cache.AppendCacheExtension("no-cache");
+            Response.Expires = 0;
         }
         //validação do campo nome
         protected void CustomValidator1_ServerValidate(object source, ServerValidateEventArgs args)
@@ -158,6 +163,18 @@ namespace PS_11_9952_TrabalhoModelo_2021.Admin.Alunos
         protected void FormView1_ItemUpdated(object sender, FormViewUpdatedEventArgs e)
         {
             Response.Redirect("gerir.aspx");
+        }
+
+        protected void SqlAluno_Updated(object sender, SqlDataSourceStatusEventArgs e)
+        {
+            //nprocesso
+            string processo = e.Command.Parameters["@nprocesso"].Value.ToString();
+            //imagem
+            FileUpload imagem = FormView1.FindControl("FileUpload1") as FileUpload;
+            if (imagem.HasFile)
+            {
+                imagem.SaveAs(Server.MapPath("~/public/fotos/") + processo + ".jpg");
+            }
         }
     }
 }

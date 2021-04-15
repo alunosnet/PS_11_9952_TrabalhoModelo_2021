@@ -44,6 +44,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Web.DataVisualization" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -71,6 +72,7 @@
     <Content Include="Admin\Alunos\apagar.aspx" />
     <Content Include="Admin\Alunos\editar.aspx" />
     <Content Include="Admin\Alunos\gerir.aspx" />
+    <Content Include="Admin\Consultas\Grafico.aspx" />
     <Content Include="Admin\Disciplinas\adicionar.aspx" />
     <Content Include="Admin\Disciplinas\gerir.aspx" />
     <Content Include="Admin\Disciplinas\pesquisar.aspx" />
@@ -80,10 +82,14 @@
     <Content Include="Admin\Utilizadores\adicionar.aspx" />
     <Content Include="Admin\Utilizadores\gerir.aspx" />
     <Content Include="Admin\Utilizadores\pesquisar.aspx" />
+    <Content Include="Aluno\notas_aluno.aspx" />
+    <Content Include="Aluno\perfil_aluno.aspx" />
     <Content Include="App_Data\bd_9952.mdf" />
     <Content Include="App_Data\bd_9952_log.ldf">
       <DependentUpon>bd_9952.mdf</DependentUpon>
     </Content>
+    <Content Include="detalhes_curso.aspx" />
+    <Content Include="Erros.aspx" />
     <Content Include="index.aspx" />
     <Content Include="Logbook.txt" />
     <Content Include="Logout.aspx" />
@@ -122,6 +128,13 @@
     </Compile>
     <Compile Include="Admin\Alunos\gerir.aspx.designer.cs">
       <DependentUpon>gerir.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Consultas\Grafico.aspx.cs">
+      <DependentUpon>Grafico.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Consultas\Grafico.aspx.designer.cs">
+      <DependentUpon>Grafico.aspx</DependentUpon>
     </Compile>
     <Compile Include="Admin\Disciplinas\adicionar.aspx.cs">
       <DependentUpon>adicionar.aspx</DependentUpon>
@@ -186,6 +199,34 @@
     <Compile Include="Admin\Utilizadores\pesquisar.aspx.designer.cs">
       <DependentUpon>pesquisar.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Aluno\notas_aluno.aspx.cs">
+      <DependentUpon>notas_aluno.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Aluno\notas_aluno.aspx.designer.cs">
+      <DependentUpon>notas_aluno.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Aluno\perfil_aluno.aspx.cs">
+      <DependentUpon>perfil_aluno.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Aluno\perfil_aluno.aspx.designer.cs">
+      <DependentUpon>perfil_aluno.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="detalhes_curso.aspx.cs">
+      <DependentUpon>detalhes_curso.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="detalhes_curso.aspx.designer.cs">
+      <DependentUpon>detalhes_curso.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Erros.aspx.cs">
+      <DependentUpon>Erros.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Erros.aspx.designer.cs">
+      <DependentUpon>Erros.aspx</DependentUpon>
+    </Compile>
     <Compile Include="index.aspx.cs">
       <DependentUpon>index.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -220,7 +261,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Aluno\" />
     <Folder Include="public\Fotos\" />
   </ItemGroup>
   <PropertyGroup>

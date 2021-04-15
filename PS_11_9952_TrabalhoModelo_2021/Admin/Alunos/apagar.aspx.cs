@@ -21,5 +21,20 @@ namespace PS_11_9952_TrabalhoModelo_2021.Admin.Alunos
         {
             Response.Redirect("gerir.aspx");
         }
+
+        protected void SqlAluno_Deleted(object sender, SqlDataSourceStatusEventArgs e)
+        {
+            //nprocesso
+            string processo = e.Command.Parameters["@nprocesso"].Value.ToString();
+            string ficheiro = Server.MapPath("~/Public/Fotos/") + processo + ".jpg";
+            try
+            {
+                System.IO.File.Delete(ficheiro);
+            }
+            catch
+            {
+
+            }
+        }
     }
 }

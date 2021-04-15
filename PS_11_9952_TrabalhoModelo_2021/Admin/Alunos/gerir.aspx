@@ -12,6 +12,7 @@
             <asp:HyperLinkField DataNavigateUrlFields="nprocesso" DataNavigateUrlFormatString="apagar.aspx?nprocesso={0}" Text="Apagar" HeaderText="Apagar"></asp:HyperLinkField>
             <asp:BoundField DataField="nprocesso" HeaderText="nprocesso" ReadOnly="True" InsertVisible="False" SortExpression="nprocesso"></asp:BoundField>
             <asp:BoundField DataField="nome" HeaderText="nome" SortExpression="nome"></asp:BoundField>
+            <asp:ImageField ControlStyle-Width="200px" DataImageUrlField="nprocesso" DataImageUrlFormatString="~/public/fotos/{0}.jpg" HeaderText="Fotografia"></asp:ImageField>
         </Columns>
     </asp:GridView>
     <hr />
