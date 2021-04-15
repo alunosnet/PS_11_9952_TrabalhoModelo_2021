@@ -13,7 +13,8 @@ namespace PS_11_9952_TrabalhoModelo_2021.Admin.Alunos
         //TODO:não apagar o aluno se tiver notas
         protected void Page_Load(object sender, EventArgs e)
         {
-            //TODO:validar sessão
+            if (Session["perfil"] == null || Session["perfil"].Equals("0") == false)
+                Response.Redirect("~/index.aspx");
         }
 
         protected void FormView1_ItemDeleted(object sender, FormViewDeletedEventArgs e)

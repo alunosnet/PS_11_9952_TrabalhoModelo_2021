@@ -66,7 +66,8 @@
                 CssClass="alert alert-danger" Display="Dynamic"
                 ErrorMessage="O campo género é obrigatório"></asp:RequiredFieldValidator>
             <br />
-            <!--TODO: Falta o fileupload da fotografia-->
+            Fotografia:
+            <asp:FileUpload CssClass="form-control-file" ID="FileUpload1" runat="server" /><br />
             <asp:LinkButton CssClass="btn btn-danger btn-lg" runat="server" Text="Insert" CommandName="Insert" ID="InsertButton" CausesValidation="True" />&nbsp;<asp:LinkButton CssClass="btn btn-info btn-lg" runat="server" Text="Cancel" CommandName="Cancel" ID="InsertCancelButton" CausesValidation="False" />
         </InsertItemTemplate>
         <ItemTemplate>
@@ -85,13 +86,15 @@
             <asp:LinkButton runat="server" Text="New" CommandName="New" ID="NewButton" CausesValidation="False" />
         </ItemTemplate>
     </asp:FormView>
-    <asp:SqlDataSource runat="server" ID="SqlAlunos" ConnectionString='<%$ ConnectionStrings:ConnectionString %>' InsertCommand="INSERT INTO alunos(nome, morada, cp, data_nascimento, genero) VALUES (@nome, @morada, @cp, @data_nascimento, @genero)" SelectCommand="select * from alunos">
+    <asp:SqlDataSource OnInserted="SqlAlunos_Inserted" runat="server" ID="SqlAlunos" ConnectionString='<%$ ConnectionStrings:ConnectionString %>'
+        InsertCommand="INSERT INTO alunos(nome, morada, cp, data_nascimento, genero) VALUES (@nome, @morada, @cp, @data_nascimento, @genero); SET @novo=SCOPE_IDENTITY();" SelectCommand="select * from alunos">
         <InsertParameters>
             <asp:Parameter Name="nome"></asp:Parameter>
             <asp:Parameter Name="morada"></asp:Parameter>
             <asp:Parameter Name="cp"></asp:Parameter>
             <asp:Parameter Name="data_nascimento" DbType="Date"></asp:Parameter>
             <asp:Parameter Name="genero"></asp:Parameter>
+            <asp:Parameter Name="novo" Direction="Output" DbType="Int32"></asp:Parameter>
         </InsertParameters>
     </asp:SqlDataSource>
 </asp:Content>

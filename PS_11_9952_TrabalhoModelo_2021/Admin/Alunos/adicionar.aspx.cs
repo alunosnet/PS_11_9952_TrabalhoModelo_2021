@@ -12,7 +12,8 @@ namespace PS_11_9952_TrabalhoModelo_2021.Admin.Alunos
         //TODO: falta o file upload da fotografia
         protected void Page_Load(object sender, EventArgs e)
         {
-            //TODO:validar sessão
+            if (Session["perfil"] == null || Session["perfil"].Equals("0") == false)
+                Response.Redirect("~/index.aspx");
         }
         //validação do campo nome
         protected void CustomValidator1_ServerValidate(object source, ServerValidateEventArgs args)
@@ -152,6 +153,13 @@ namespace PS_11_9952_TrabalhoModelo_2021.Admin.Alunos
             }
 
             args.IsValid = true;
+        }
+
+        protected void SqlAlunos_Inserted(object sender, SqlDataSourceStatusEventArgs e)
+        {
+            //nprocesso
+            string processo = e.Command.Parameters["novo"].Value.ToString();
+            //TODO: continuar aqui
         }
     }
 }

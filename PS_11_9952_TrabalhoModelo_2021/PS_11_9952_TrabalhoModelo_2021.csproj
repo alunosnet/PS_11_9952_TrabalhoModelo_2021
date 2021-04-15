@@ -77,11 +77,16 @@
     <Content Include="Admin\Notas\adicionar.aspx" />
     <Content Include="Admin\Notas\gerir.aspx" />
     <Content Include="Admin\Notas\pesquisar.aspx" />
+    <Content Include="Admin\Utilizadores\adicionar.aspx" />
+    <Content Include="Admin\Utilizadores\gerir.aspx" />
+    <Content Include="Admin\Utilizadores\pesquisar.aspx" />
     <Content Include="App_Data\bd_9952.mdf" />
     <Content Include="App_Data\bd_9952_log.ldf">
       <DependentUpon>bd_9952.mdf</DependentUpon>
     </Content>
+    <Content Include="index.aspx" />
     <Content Include="Logbook.txt" />
+    <Content Include="Logout.aspx" />
     <Content Include="public\bootstrap.bundle.min.js" />
     <Content Include="public\bootstrap.min.css" />
     <Content Include="public\css.css" />
@@ -160,6 +165,41 @@
     <Compile Include="Admin\Notas\pesquisar.aspx.designer.cs">
       <DependentUpon>pesquisar.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Admin\Utilizadores\adicionar.aspx.cs">
+      <DependentUpon>adicionar.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Utilizadores\adicionar.aspx.designer.cs">
+      <DependentUpon>adicionar.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Utilizadores\gerir.aspx.cs">
+      <DependentUpon>gerir.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Utilizadores\gerir.aspx.designer.cs">
+      <DependentUpon>gerir.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Utilizadores\pesquisar.aspx.cs">
+      <DependentUpon>pesquisar.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Utilizadores\pesquisar.aspx.designer.cs">
+      <DependentUpon>pesquisar.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="index.aspx.cs">
+      <DependentUpon>index.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="index.aspx.designer.cs">
+      <DependentUpon>index.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Logout.aspx.cs">
+      <DependentUpon>Logout.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Logout.aspx.designer.cs">
+      <DependentUpon>Logout.aspx</DependentUpon>
+    </Compile>
     <Compile Include="MP.Master.cs">
       <DependentUpon>MP.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -181,6 +221,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Aluno\" />
+    <Folder Include="public\Fotos\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

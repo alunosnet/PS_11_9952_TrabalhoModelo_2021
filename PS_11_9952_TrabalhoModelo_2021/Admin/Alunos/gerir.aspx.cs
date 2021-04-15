@@ -12,7 +12,8 @@ namespace PS_11_9952_TrabalhoModelo_2021.Admin.Alunos
         //TODO: adicionar uma coluna com a fotografia
         protected void Page_Load(object sender, EventArgs e)
         {
-            //TODO:validar sessão
+            if (Session["perfil"] == null || Session["perfil"].Equals("0") == false)
+                Response.Redirect("~/index.aspx");
         }
     }
 }

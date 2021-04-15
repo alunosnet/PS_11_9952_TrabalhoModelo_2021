@@ -11,7 +11,8 @@ namespace PS_11_9952_TrabalhoModelo_2021.Admin.Disciplinas
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (Session["perfil"] == null || Session["perfil"].Equals("0") == false)
+                Response.Redirect("~/index.aspx");
         }
         //validação do tamanho minimo
         protected void CustomValidator1_ServerValidate(object source, ServerValidateEventArgs args)
