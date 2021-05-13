@@ -13,5 +13,14 @@ namespace PS_11_9952_TrabalhoModelo_2021
         {
 
         }
+        protected void bt1_Click(object sender, EventArgs e)
+        {
+            //esconder a div
+            div_aviso.Visible = false;
+            //criar o cookie
+            HttpCookie cookie = new HttpCookie("M7_T2");
+            cookie.Expires = DateTime.Now.AddYears(1);
+            Response.Cookies.Add(cookie);
+        }
     }
 }
